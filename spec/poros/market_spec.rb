@@ -4,6 +4,7 @@ RSpec.describe Market do
   describe '#initialize' do
     before(:each) do
       market_data = {
+        id: 1,
         attributes: {
           name: "Marks Market",
           city: "Los Angeles",
