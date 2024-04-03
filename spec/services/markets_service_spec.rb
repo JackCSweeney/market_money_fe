@@ -20,8 +20,26 @@ RSpec.describe MarketsService do
 
     describe '#get_url' do
       it 'can return a JSON response from the url that is input' do
-        expect(@service.get_url("/api/v0/markets")).to be_a(Hash)
+        response = @service.get_url("/api/v0/markets")
 
+        expect(response).to be_a(Hash)
+        expect(response[:data]).to be_a(Array)
+
+        data = response[:data].first
+
+        expect(data).to have_key(:attributes)
+        expect(data[:attributes]).to be_a(Hash)
+
+        attributes = data[:attributes]
+        
+        expect(attributes).to have_key(:name)
+        expect(attributes[:name]).to be_a(String)
+
+        expect(attributes).to have_key(:city)
+        expect(attributes[:city]).to be_a(String)
+
+        expect(attributes).to have_key(:state)
+        expect(attributes[:state]).to be_a(String)
       end
     end
 
