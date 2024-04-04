@@ -15,4 +15,9 @@ class MarketsService
     end
   end
 
+  def get_single_market(market_id)
+    market_data = get_url("/api/v0/markets/#{market_id}")
+    Market.new(market_data[:data])
+  end
+
 end

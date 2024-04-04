@@ -49,6 +49,12 @@ RSpec.describe MarketsService do
         expect(@service.get_all_markets.all?{|market| market.class == Market}).to eq(true)
       end
     end
+
+    describe '#get_single_market(market_id)' do
+      it 'can return a single market poro' do
+        expect(@service.get_single_market(322458)).to be_a(Market)
+      end
+    end
   end
 end
 
