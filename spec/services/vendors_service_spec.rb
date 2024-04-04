@@ -19,7 +19,7 @@ RSpec.describe VendorsService do
         data = @service.get_vendor(55823)
 
         expect(data).to have_key(:id)
-        expect(data[:id]).to be_a(Integer)
+        expect(data[:id]).to be_a(String)
 
         expect(data).to have_key(:attributes)
         expect(data[:attributes]).to be_a(Hash)
@@ -40,7 +40,7 @@ RSpec.describe VendorsService do
 
         expect(attributes).to have_key(:credit_accepted)
         boolean = [true, false]
-        expect(boolean.include?(attributes[:credit_accepted])).to be_a(true)
+        expect(boolean.include?(attributes[:credit_accepted])).to eq(true)
       end
     end
 

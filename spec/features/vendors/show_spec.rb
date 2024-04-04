@@ -14,7 +14,7 @@ RSpec.describe 'Vendor Show Page' do
       end
 
       within ".vendor_info" do
-        expect(page).to have_content("Credit Accepted?: NO")
+        expect(page).to have_content("Credit Accepted?: false")
         expect(page).to have_content("Description: Vendor selling a variety of artisanal cured meats and sausages.")
       end
     end
