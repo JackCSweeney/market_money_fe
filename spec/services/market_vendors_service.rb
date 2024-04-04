@@ -24,7 +24,7 @@ RSpec.describe MarketVendorsService do
     describe '#get_market_vendors(market)' do
       it 'can return all vendors for the given market' do
         expect(@service.get_market_vendors(@market.id)).to be_a(Array)
-        expect(@service.get_market_vendors(@market.id).first).to be_a(Vendor)
+        expect(@service.get_market_vendors(@market.id).first).to be_a(Hash)
       end
     end
 

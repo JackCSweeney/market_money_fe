@@ -10,9 +10,7 @@ class MarketVendorsService
   end
 
   def get_market_vendors(market_id)
-    get_url("/api/v0/markets/#{market_id}/vendors")[:data].map do |vendor_data|
-      Vendor.new(vendor_data)
-    end    
+    get_url("/api/v0/markets/#{market_id}/vendors")[:data]
   end
 
 end
