@@ -44,14 +44,14 @@ RSpec.describe MarketsService do
     end
 
     describe '#get_all_markets' do
-      it 'can return Market poros' do
+      it 'can return Market data' do
         expect(@service.get_all_markets).to be_a(Array)
         expect(@service.get_all_markets.first).to be_a(Hash)
       end
     end
 
     describe '#get_single_market(market_id)' do
-      it 'can return a single market poro' do
+      it 'can return a single markets data' do
         expect(@service.get_single_market(322458)).to be_a(Hash)
       end
     end
