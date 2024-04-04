@@ -10,14 +10,11 @@ class MarketsService
   end
 
   def get_all_markets
-    get_url("/api/v0/markets")[:data].map do |market_data|
-      Market.new(market_data)
-    end
+    get_url("/api/v0/markets")[:data]
   end
 
   def get_single_market(market_id)
-    market_data = get_url("/api/v0/markets/#{market_id}")
-    Market.new(market_data[:data])
+    get_url("/api/v0/markets/#{market_id}")[:data]
   end
 
 end

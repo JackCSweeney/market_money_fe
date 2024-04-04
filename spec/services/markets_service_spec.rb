@@ -46,13 +46,13 @@ RSpec.describe MarketsService do
     describe '#get_all_markets' do
       it 'can return Market poros' do
         expect(@service.get_all_markets).to be_a(Array)
-        expect(@service.get_all_markets.all?{|market| market.class == Market}).to eq(true)
+        expect(@service.get_all_markets.first).to be_a(Hash)
       end
     end
 
     describe '#get_single_market(market_id)' do
       it 'can return a single market poro' do
-        expect(@service.get_single_market(322458)).to be_a(Market)
+        expect(@service.get_single_market(322458)).to be_a(Hash)
       end
     end
   end

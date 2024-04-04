@@ -5,11 +5,14 @@ class MarketsFacade
   end
 
   def markets
-    MarketsService.new.get_all_markets
+    MarketsService.new.get_all_markets.map do |market_data|
+      Market.new(market_data)
+    end
   end
 
   def market
-    MarketsService.new.get_single_market(@market_id)
+    market_data = MarketsService.new.get_single_market(@market_id)
+    Market.new(market_data)
   end
 
   def market_vendors
