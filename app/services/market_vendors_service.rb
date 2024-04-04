@@ -9,8 +9,8 @@ class MarketVendorsService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def get_market_vendors(market)
-    get_url("/api/v0/markets/#{market.id}/vendors")[:data].map do |vendor_data|
+  def get_market_vendors(market_id)
+    get_url("/api/v0/markets/#{market_id}/vendors")[:data].map do |vendor_data|
       Vendor.new(vendor_data)
     end    
   end
