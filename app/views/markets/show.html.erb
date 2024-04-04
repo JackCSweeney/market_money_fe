@@ -1,0 +1,11 @@
+<h1><%= @facade.market.name %></h1>
+<h4><%= @facade.market.address %></h4>
+
+<section class="vendors">
+<h3>Vendors at our Market:</h3>
+  <% @facade.market_vendors.each do |vendor| %>
+    <div id="vendor">
+      <%= link_to "#{vendor.name}", "/vendors/#{vendor.id}" %><br>
+    </div>
+  <% end %>
+</section>

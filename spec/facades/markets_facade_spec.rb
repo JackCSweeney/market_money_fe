@@ -2,16 +2,14 @@ require 'rails_helper'
 
 RSpec.describe MarketsFacade do
   before (:each) do
-    @facade = MarketsFacade.new
+    @facade = MarketsFacade.new(322458)
+    @facade_2 = MarketsFacade.new
   end
 
   describe '#initialize' do
-    it 'exists' do
+    it 'exists and has optional initialize argument' do
       expect(@facade).to be_a(MarketsFacade)
-    end
-
-    it 'has a market attribute' do
-      expect(@facade.market).to eq(nil)
+      expect(@facade_2).to be_a(MarketsFacade)
     end
   end
 
@@ -22,15 +20,14 @@ RSpec.describe MarketsFacade do
     end
   end
 
-  describe '#get_market(market_id)' do
+  describe '#market' do
     it 'returns a single market object' do
-      expect(@facade.get_market(322458)).to be_a(Market)
+      expect(@facade.market).to be_a(Market)
     end
   end
 
   describe '#market_vendors' do
     it 'returns an array of vendor objects' do
-      @facade.get_market(322458)
       expect(@facade.market_vendors).to be_a(Array)
       expect(@facade.market_vendors.first).to be_a(Vendor)
     end

@@ -4,7 +4,6 @@ RSpec.describe "Markets Index Page" do
   it 'can visit the markets index page, see all markets, and buttons to take you to the markets show page' do
     # As a visitor, when I visit '/markets'
     visit "/markets"
-    save_and_open_page
     # I see all markets listed with their name, city and state
     expect(page).to have_content("Markets")
     within ".markets" do
